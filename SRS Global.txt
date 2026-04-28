@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRS Global</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: url(Background/651310592_799674566510760_2288298397990840515_n.jpg) no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 400;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #4f46e5;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+      background: rgba(0, 0, 0, 0.432);
+      color: white;
+      backdrop-filter: blur(3px);
+    }
+
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 20px;
+      box-shadow: 
+        0 0 20px rgba(255,255,255,0.3),
+        0 10px 30px rgba(0,0,0,0.3);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero h2 {
+      background: linear-gradient(90deg, #ffffff, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: white;
+      color: #111;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: white;
+      color: #111;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e0e7ff;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 30px auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-left {
+      transform: translateX(-60px);
+    }
+
+    .fade-right {
+      transform: translateX(60px);
+    }
+
+    .zoom-in {
+      transform: scale(0.85);
+    }
+
+    .show.fade-left,
+    .show.fade-right {
+      transform: translateX(0);
+    }
+
+    .show.zoom-in {
+      transform: scale(1);
+    }
+
+    .about h3,
+    .contact h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about p {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .gallery h3 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .gallery-sub {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 30px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 14px;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .social h3 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .social-sub {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .social-icon {
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .social-icon:hover {
+      transform: translateY(-4px) scale(1.1);
+    }
+
+    .social-icon.fb:hover {
+      box-shadow: 0 0 20px rgba(59,89,152,0.7);
+    }
+
+    .social-icon.yt:hover {
+      box-shadow: 0 0 20px rgba(255,0,0,0.7);
+    }
+
+    .hall-of-fame h3 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .hof-sub {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .hof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .hof-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .hof-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .hof-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .hof-card h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .hof-card p {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .elite-speakers h3 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .elite-sub {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .elite-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .elite-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .elite-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .elite-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .elite-card h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .elite-card p {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .earn-sub {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .top-earners h3 {
+      text-align: center;
+    }
+
+    .earn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .earn-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .earn-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .earn-card .rank {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255,255,255,0.2);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .earn-card h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .earn-card p {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .earn-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    
+
+    .role-sub {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    /* Mentors stacked layout */
+    .mentors .role-grid {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .role-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .role-card h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .role-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .role-card p {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .vip-sub {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .vip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .vip-card {
+      position: relative;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      animation: vipGlow 3s infinite alternate;
+    }
+
+    @keyframes vipGlow {
+      0% {
+        box-shadow: 0 0 5px rgba(212,175,55,0.2), 0 0 10px rgba(255,215,0,0.2);
+        border-color: rgba(212,175,55,0.3);
+      }
+      100% {
+        box-shadow: 0 0 15px rgba(212,175,55,0.7), 0 0 30px rgba(255,215,0,0.5);
+        border-color: rgba(255,215,0,0.8);
+      }
+    }
+
+    .vip-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .vip-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .vip-card h4 {
+      font-size: 16px;
+      margin: 5px 0 0;
+    }
+
+    .vip-card {
+      position: relative;
+    }
+
+    .vip-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: linear-gradient(45deg, #d4af37, #ffd700);
+      color: black;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+
+    .vip-club h3,
+    .vip-sub {
+      text-align: center;
+    }
+
+    .vip-club h3,
+    .vip-sub {
+      text-align: center;
+    }
+
+    .grand-mentors h3,
+    .mentors h3,
+    .grand-coaches h3,
+    .coaches h3 {
+      text-align: center;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.25);
+    }
+
+    .social-btn.fb:hover {
+      box-shadow: 0 0 20px rgba(59,89,152,0.6);
+    }
+
+    .social-btn.yt:hover {
+      box-shadow: 0 0 20px rgba(255,0,0,0.6);
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+    .scroll-indicator {
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.8;
+      animation: float 2s infinite;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: white;
+      font-size: 14px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+    }
+  h1, h2, h3 {
+      font-family: 'Venus Rising', sans-serif;
+    }
+
+    </style>
+</head>
+<body>
+
+  <header>
+    <h1>SRS Global</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img src="Logo/SRS Global Logo.png" alt="Team Logo" class="hero-logo">
+    <h2>Hi, We Are SRS Global</h2>
+    <p>Welcome to SRS Global — a dynamic networking team committed to helping individuals turn their dreams into reality. Our community is built on support, growth, and shared success, where every member is encouraged to develop their skills, expand their opportunities, and achieve their personal and financial goals. At SRS Global, we believe that with the right guidance, mindset, and teamwork, anyone can create a brighter future and make a meaningful impact in their lives and in the lives of others.</p>
+    <a href="#about" class="btn">Learn More About Me</a>
+    <div class="scroll-indicator">Scroll Down</div>
+  </section>
+
+  <section class="about" id="about">
+    <h3>About Us</h3>
+    <p>
+      SRS Global is a purpose-driven networking team dedicated to helping individuals achieve their dreams and unlock their full potential. Through collaboration, mentorship, and a supportive community, we inspire growth, provide opportunities, and guide members toward success in both life and business. Together, we work to build better futures for individuals and families.
+</p>
+  </section>
+
+    <section class="gallery" id="gallery">
+    <h3>Our Latest Travel</h3>
+    <p class="gallery-sub">Travels, trainings, and team moments</p>
+    <div class="gallery-grid">
+      <img src="Travels/649819351_799674469844103_3157219625988682826_n.jpg" alt="Training">
+      <img src="Travels/650804120_800498949761655_8837498195857635038_n.jpg" alt="Travel">
+      <img src="Travels/651148517_800498483095035_7372897432892333577_n.jpg" alt="Team">
+      <img src="Travels/651148998_800499379761612_1005193540802012902_n.jpg" alt="Seminar">
+      <img src="Travels/651168831_800496746428542_373488149614023131_n.jpg" alt="Workshop">
+      <img src="Travels/651174640_799675823177301_5225630347705388109_n.jpg" alt="Team Building">
+      <img src="Travels/651210267_800497626428454_2051833504820343841_n.jpg" alt="Team Building">
+      <img src="Travels/653368622_800497746428442_3765773174673813585_n.jpg" alt="Team Building">
+    </div>
+  </section>
+
+  
+
+      <section class="hall-of-fame" id="hall-of-fame">
+    <h3>Hall of Famers</h3>
+    <p class="hof-sub">Recognizing achievements, milestones, and outstanding members</p>
+    <div class="hof-grid">
+      <div class="hof-card">
+        <img src="HOF Pictures/Hof 1.png" alt="Member">
+        <h4>William "YG" Gavales</h4>
+        <p>SRS Global Founder</p>
+         <p>1st REDinc Hall of Famer</p>
+          <p>1st REDinc R.E.M.C</p>
+      </div>
+      <div class="hof-card">
+        <img src="HOF Pictures/Hof 2.png" alt="Member">
+        <h4>Q.Mentor Vanesa Gavales</h4>
+        <p>SRS Global Honorary Foundress</p>
+         <p>1st REDinc Hall of Famer</p>
+          <p>REEC LEVEL 5</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="elite-speakers" id="elite-speakers">
+    <h3>SRS Elite Speaker Society Members</h3>
+    <p class="elite-sub">Recognized speakers and mentors driving growth and leadership</p>
+    <div class="elite-grid">
+      <div class="elite-card">
+        <img src="Speakers Society/6.png" alt="Speaker">
+        <h4>Anadel Colico</h4>
+        <p>SRS Golden Lions Grand Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/35.png" alt="Speaker">
+        <h4>Ariel Lumanog</h4>
+        <p>SRS Red Flying Reindeer Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/7.png" alt="Speaker">
+        <h4>Joanne Arenajo</h4>
+        <p>SRS Zebra Strides Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/8.png" alt="Speaker">
+        <h4>Wilma Dublar</h4>
+        <p>SRS Strong Tiger Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/9.png" alt="Speaker">
+        <h4>Edelina Toradio</h4>
+        <p>SRS Caraga Tigers Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/10.png" alt="Speaker">
+        <h4>Nelia Esta</h4>
+        <p>SRS Ultimate Dreamer Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/11.png" alt="Speaker">
+        <h4>Maryanne Mawirat</h4>
+        <p>SRS Majestic Eagle Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/12.png" alt="Speaker">
+        <h4>Virgie Parcon</h4>
+        <p>SRS Red Cardinals Grand Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/13.png" alt="Speaker">
+        <h4>JonathanReden Rico</h4>
+        <p>SRS Black Stallion Dynasty</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/14.png" alt="Speaker">
+        <h4>Julie Taganas</h4>
+        <p>SRS Golden Rising Eagle Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/15.png" alt="Speaker">
+        <h4>Necie Calderon</h4>
+        <p>SRS Rising Dragon Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/16.png" alt="Speaker">
+        <h4>Crisanta Fronteras</h4>
+        <p>SRS Lions of Judah</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/17.png" alt="Speaker">
+        <h4>Melony Bermal</h4>
+        <p>SRS Next Generation</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/18.png" alt="Speaker">
+        <h4>Restituta Tagoctoc</h4>
+        <p>SRS Wild Butterfly Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/19.png" alt="Speaker">
+        <h4>Vilma Capuyan</h4>
+        <p>SRS Dragon Queen Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/20.png" alt="Speaker">
+        <h4>Maritess Perez</h4>
+        <p>SRS Golden Achiever Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/21.png" alt="Speaker">
+        <h4>Rosanna Agron</h4>
+        <p>SRS Red Lions Grand Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/22.png" alt="Speaker">
+        <h4>Chedilyn Cupada</h4>
+        <p>SRS Golden Dragon</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/23.png" alt="Speaker">
+        <h4>Dina Sesbreño</h4>
+        <p>SRS Unstoppabull Grand Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/24.png" alt="Speaker">
+        <h4>Erwin Dula</h4>
+        <p>SRS Golden Lions Grand Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/25.png" alt="Speaker">
+        <h4>Ferdinand Parcon</h4>
+        <p>SRS Red Cardinals Grand Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/26.png" alt="Speaker">
+        <h4>Marina Tantuan</h4>
+        <p>SRS Dragon Warrior Empire</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/27.png" alt="Speaker">
+        <h4>Josephine Banate/h4>
+        <p>SRS JJB Rising Wolf Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/28.png" alt="Speaker">
+        <h4>Lourdes Nuera</h4>
+        <p>SRS ABC Lions</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/29.png" alt="Speaker">
+        <h4>Marianita Norte</h4>
+        <p>SRS Red Dragon Grand Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/30.png" alt="Speaker">
+        <h4>Maricris Mendoza</h4>
+        <p>SRS Volcanic Blazer</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/31.png" alt="Speaker">
+        <h4>Michael Majan</h4>
+        <p>SRS Lions Grand Dynasty</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/32.png" alt="Speaker">
+        <h4>Ronalyn Capuyan</h4>
+        <p>SRS Lions Grand Dynasty</p>
+      </div>
+      <div class="elite-card">
+        <img src="Speakers Society/33.png" alt="Speaker">
+        <h4>Rosalia Majan</h4>
+        <p>SRS Ultimate Warrior Empire</p>
+      </div>
+       <div class="elite-card">
+        <img src="Speakers Society/34.png" alt="Speaker">
+        <h4>Patricia Malig-on</h4>
+        <p>SRS Fire Eagle Empire</p>
+      </div>
+    </div>
+  </section>
+
+          
+
+    <section class="grand-mentors" id="grand-mentors">
+    <h3>Grand Mentors</h3>
+    <p class="role-sub">Top-tier leaders guiding the entire organization</p>
+    <div class="role-grid">
+      <div class="role-card"><img src="GM/GM majan.png" alt="Member"><h4>Grand Mentor Michael Majan</h4><p>SRS Lions Grand Dynasty</p></div>
+    </div>
+  </section>
+
+  <section class="mentors" id="mentors">
+    <h3>Mentors</h3>
+    <p class="role-sub">Guiding members toward growth and success</p>
+    <div class="role-grid">
+      <div class="role-card"><img src="Mentors/Screenshot 2026-04-21 132255.png" alt="Member"><h4>Mentor Vanesa Gavales</h4><p>SRS Global</p></div>
+      <div class="role-card"><img src="Mentors/Screenshot 2026-04-21 133410.png" alt="Member"><h4>Mentor Ronalyn Capuyan</h4><p>SRS Lions Grand Dynasty</p></div>
+      <div class="role-card"><img src="Mentors/Screenshot 2026-04-21 132903.png" alt="Member"><h4>Mentor JonathanReden Rico</h4><p>SRS Black Stallion Dynasty</p></div>
+      <div class="role-card"><img src="Mentors/Screenshot 2026-04-21 133927.png" alt="Member"><h4>Mentor Jewelrie Mhae Apaga</h4><p>SRS Black Stallion Dynasty</p></div>
+    </div>
+  </section>
+
+  <section class="grand-coaches" id="grand-coaches">
+    <h3>Grand Coaches</h3>
+    <p class="role-sub">Elite coaches leading high-performing teams</p>
+    <div class="role-grid">
+      <div class="role-card"><img src="Grand Coaches/Anadel Colico Magazine.png" alt="Member"><h4>G.C Anadel Colico</h4><p>SRS Golden Lions Grand Empire</p></div>
+      <div class="role-card"><img src="Grand Coaches/Magazine Celso Dumalig.png" alt="Member"><h4>G.C Celso Dumalig</h4><p>SRS Blazing Wolf Grand Empire</p></div>
+      <div class="role-card"><img src="Grand Coaches/Magazine Dina Sesrebno.png" alt="Member"><h4>G.C Dina Sesbreño</h4><p>SRS Unstoppabull Grand Empire</p></div>
+      <div class="role-card"><img src="Grand Coaches/Magazine Erwin Dula.png" alt="Member"><h4>G.C Erwin Dula</h4><p>SRS Golden Lions Grand Empire</p></div>
+      <div class="role-card"><img src="Grand Coaches/Magazine Ferdie Parcon.png" alt="Member"><h4>G.C Ferdinand Parcon</h4><p>SRS Red Cardinals Grand Empire</p></div>
+      <div class="role-card"><img src="Grand Coaches/Magazine Marianita Norte.png" alt="Member"><h4>G.C Marianita Norte</h4><p>SRS Red Dragon Grand Empire</p></div>
+      <div class="role-card"><img src="Grand Coaches/Magazine Renato Aquino.png" alt="Member"><h4>G.C Renato Aquino2</h4><p>SRS Dream Eagle Grand Empire</p></div>
+      <div class="role-card"><img src="Grand Coaches/Magazine Rosanna Agron.png" alt="Member"><h4>G.C Rosanna Agron</h4><p>SRS Red Lions Grand Empire</p></div>
+    </div>
+  </section>
+
+    <section class="coaches" id="coaches">
+    <h3>Coaches</h3>
+    <p class="role-sub">Supporting members in daily growth and performance</p>
+    <div class="role-grid">
+      <div class="role-card"><img src="Coaches/36.png" alt="Member"><h4>Coach Julie Taganas</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/37.png" alt="Member"><h4>Coach Joanne Arenajo</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/38.png" alt="Member"><h4>Coach Wilma Dublar</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/39.png" alt="Member"><h4>Coach Restituta Tagoctoc</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/40.png" alt="Member"><h4>Coach Virgie Parcon</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/41.png" alt="Member"><h4>Coach Patricia Malig-on</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/42.png" alt="Member"><h4>Coach Vilma Capuyan</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/43.png" alt="Member"><h4>Coach Maryanne Mawirat</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/44.png" alt="Member"><h4>Coach Necie Calderon</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/45.png" alt="Member"><h4>Coach Edelina Toradio</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/46.png" alt="Member"><h4>Coach Ariel Matuto</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/52.png" alt="Member"><h4>Coach Ariel Lumanog</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/47.png" alt="Member"><h4>Coach Rosalia Majan</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/48.png" alt="Member"><h4>Coach Maritess Perez</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/49.png" alt="Member"><h4>Coach Marina Tantuan</h4><p></p></div>
+      <div class="role-card"><img src="Coaches/50.png" alt="Member"><h4>Coach Nelia Esta</h4><p></p></div>
+      
+    </div>
+  </section>
+
+    <section class="top-earners" id="top-earners">
+    <h3>Top 1–20 Earners of SRS Global Team</h3>
+    <p class="earn-sub">Ranking of outstanding performers based on achievements</p>
+    <div class="earn-grid">
+      <div class="earn-card">
+        <span class="rank">#1</span>
+        <img src="Pictures/Top 1.jpg" alt="Top Earner 1">
+        <h4>Michael Majan</h4>
+        <p>TOP 1</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#2</span>
+        <img src="Pictures/Top 2.png" alt="Top Earner 2">
+        <h4>Confidential</h4>
+        <p>Top 2</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#3</span>
+        <img src="Pictures/Top 3.png" alt="Top Earner 3">
+        <h4>Confidential</h4>
+        <p>Top 3</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#4</span>
+        <img src="Pictures/Top 4.png" alt="Top Earner 4">
+        <h4>Confidential</h4>
+        <p>Top 4</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#5</span>
+        <img src="Pictures/Top 5.jpg" alt="Top Earner 5">
+        <h4>Erwin Dula</h4>
+        <p>Top 5</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#6</span>
+        <img src="Pictures/TOp 6.jpg" alt="Top Earner 6">
+        <h4>Rosalia Majan</h4>
+        <p>Top 6</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#7</span>
+        <img src="Pictures/Top 7.png" alt="Top Earner 7">
+        <h4>Confidential</h4>
+        <p>Top 7</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#8</span>
+        <img src="Pictures/top 8.jpg" alt="Top Earner 8">
+        <h4>Dina Sesbreño</h4>
+        <p>Top 8</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#9</span>
+        <img src="Pictures/top 9.jpg" alt="Top Earner 9">
+        <h4>Maritess Perez</h4>
+        <p>Top 9</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#10</span>
+        <img src="Pictures/top 10.jpg" alt="Top Earner 10">
+        <h4>Teresita Estoperez</h4>
+        <p>Top 10</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#11</span>
+        <img src="Pictures/top 11.jpg" alt="Top Earner 11">
+        <h4>Vilma Capuyan</h4>
+        <p>Top 11</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#12</span>
+        <img src="Pictures/top 12.jpg" alt="Top Earner 12">
+        <h4>Rosanna Agron</h4>
+        <p>Top 12</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#13</span>
+        <img src="Pictures/top 13.jpg" alt="Top Earner 13">
+        <h4>Ariel Matuto</h4>
+        <p>Top 13</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#14</span>
+        <img src="Pictures/top 14.jpg" alt="Top Earner 14">
+        <h4>Patricia Malig-on</h4>
+        <p>Top 14</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#15</span>
+        <img src="Pictures/top 15.jpg" alt="Top Earner 15">
+        <h4>Celso Dumalig</h4>
+        <p>Top 15
+
+        </p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#16</span>
+        <img src="Pictures/top 16.jpg" alt="Top Earner 16">
+        <h4>Edelina Toradio</h4>
+        <p>Top 16</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#17</span>
+        <img src="Pictures/top 17.jpg" alt="Top Earner 17">
+        <h4>Marianita Norte</h4>
+        <p>Top 17</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#18</span>
+        <img src="Pictures/top 18.jpg" alt="Top Earner 18">
+        <h4>Josefina Estorico</h4>
+        <p>Top 18</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#19</span>
+        <img src="Pictures/top 19.jpg" alt="Top Earner 19">
+        <h4>Marites Rios</h4>
+        <p>Top 19</p>
+      </div>
+
+      <div class="earn-card">
+        <span class="rank">#20</span>
+        <img src="Pictures/top 20.jpg" alt="Top Earner 20">
+        <h4>Virgie Parcon</h4>
+        <p>Top 20</p>
+      </div>
+    </div>
+  </section>
+
+        <section class="vip-club" id="vip-club">
+    <h3>SRS 2x3 VIP Club Members</h3>
+    <p class="vip-sub">Exclusive VIP members of the SRS 2x3 community</p>
+    <div class="vip-grid">
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Alicia Petilo.jpg" alt="VIP Member 1">
+        <h4>Alicia Petilo</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Ariel Matuto.png" alt="VIP Member 2">
+        <h4>Ariel Matuto</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Celso Dumalig.png" alt="VIP Member 3">
+        <h4>Celso Dumalig</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Chedilyn Cupada.jpg" alt="VIP Member 4">
+        <h4>Chedilyn Cupada</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Erwin Dula.png" alt="VIP Member 4">
+        <h4>Erwin Dula</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Ferdinand Parcon.png" alt="VIP Member 4">
+        <h4>Ferdinand Parcon</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Joanne Arenajo.png" alt="VIP Member 1">
+        <h4>Joanne Arenajo</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Josefina Estorico.png" alt="VIP Member 2">
+        <h4>Josefina Estorico</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Julie Taganas.png" alt="VIP Member 3">
+        <h4>Julie Taganas</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Marianita Norte.png" alt="VIP Member 4">
+        <h4>Marianita Norte</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Marilou Sy.jpg" alt="VIP Member 4">
+        <h4>Marilou Sy</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Marites Rios.png" alt="VIP Member 4">
+        <h4>Marites Rios</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Maritess Perez.png" alt="VIP Member 1">
+        <h4>Maritess Perez</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/MaryAnne Mawirat.jpg" alt="VIP Member 2">
+        <h4>Maryanne Mawirat</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Mercy Teofilo.png" alt="VIP Member 3">
+        <h4>Mercedes Teofilo</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Michael Majan.png" alt="VIP Member 4">
+        <h4>Michael Majan</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Nelia Esta.png" alt="VIP Member 4">
+        <h4>Nelie Esta</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Patricia Malig-on.png" alt="VIP Member 4">
+        <h4>Patricia Malig-on</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Rhodora Chavez.jpg" alt="VIP Member 1">
+        <h4>Maria Rhodora Chavez</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Rosalia Majan.png" alt="VIP Member 2">
+        <h4>Rosalia Majan</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Rosann Agron.png" alt="VIP Member 3">
+        <h4>Rosanna Agron</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Shieralene Joy Teofilo.png" alt="VIP Member 4">
+        <h4>Shieralene Joy Teofilo</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Susan Jaylo.png" alt="VIP Member 4">
+        <h4>Susan Jaylo</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Teresita Estoperez.png" alt="VIP Member 4">
+        <h4>Teresita Estoperez</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Teresita Taghoy.png" alt="VIP Member 1">
+        <h4>Teresita Taghoy</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Tom Teofilo.png" alt="VIP Member 2">
+        <h4>Tom Teofilo</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Vilma Capuyan.png" alt="VIP Member 3">
+        <h4>Vilma Capuyan</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Virgie Parcon.png" alt="VIP Member 4">
+        <h4>Virgie Parcon</h4>
+      </div>
+      <div class="vip-card">
+        <span class="vip-badge">VIP</span>
+        <img src="VIP/Wilma Dublar.jpg" alt="VIP Member 4">
+        <h4>Wilma Dublar</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h3>Contact Information</h3>
+    <div class="contact-info">
+      <p>Email: gavaleswilliam@gmail.com</p>
+      <p>Mobile: +63 999 467 9698</p>
+    </div>
+  </section>
+
+    
+
+  <section class="social" id="social">
+    <h3>Connect With Us</h3>
+    <p class="social-sub">Follow our journey on Facebook and YouTube</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=100094046711233" target="_blank" class="social-icon fb" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5A3.5 3.5 0 0 1 14.1 6H17v3h-2a1 1 0 0 0-1 1V12H17l-.5 3h-2.5v7A10 10 0 0 0 22 12Z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@williamgavales1266" target="_blank" class="social-icon yt" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.5 12 4.5 12 4.5s-5.7 0-7.5.6A3 3 0 0 0 2.4 7.2 31.6 31.6 0 0 0 2 12a31.6 31.6 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.6 7.5.6 7.5.6s5.7 0 7.5-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 22 12a31.6 31.6 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 SRS Global. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    sections.forEach((section, index) => {
+      if (index % 3 === 0) {
+        section.classList.add('fade-left');
+      } else if (index % 3 === 1) {
+        section.classList.add('fade-right');
+      } else {
+        section.classList.add('zoom-in');
+      }
+
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
